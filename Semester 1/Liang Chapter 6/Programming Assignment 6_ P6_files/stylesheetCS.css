@@ -1,0 +1,14 @@
+body {
+    background-color: #edede3;
+    font-size: 18pt;
+    text-color: black;
+    font-family: "Times New Roman";
+}
+a:link, a:visited, a:active{
+    font-size: 16pt;
+    text-color: black;
+    text-decoration: none;
+}
+img {
+    vertical-align: middle;
+}

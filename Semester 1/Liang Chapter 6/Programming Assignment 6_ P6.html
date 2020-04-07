@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<!-- saved from url=(0069)https://www.cs.colostate.edu/~cs163/.Fall18/assignments/P6/doc/P6.php -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" type="text/css" href="./Programming Assignment 6_ P6_files/stylesheetCS.css">
+<title> Programming Assignment 6: P6 </title>
+<link rel="stylesheet" type="text/css" href="./Programming Assignment 6_ P6_files/prettify.css"></head>
+
+<body style="background-color:powderblue">
+<br>
+<img src="./Programming Assignment 6_ P6_files/csuRightAlignLogo.png" alt="CSU Banner" align="right">
+
+<h1> CS 163/164, Fall 2018 </h1>
+<h2> Programming Assignment - P6 </h2>
+<h2> Maze Program </h2>
+<h4> Due Monday, Oct. 1st at 6:00 pm </h4>
+<h4> Late Tuesday, Oct. 2nd at 8:00 am </h4>
+<hr noshade="" color="black">
+
+<h4> Objectives of this Assignment </h4>
+
+This lab has the goal of teaching you how to:
+<ol>
+    <li> Instantiate a Maze object and call its methods, </li>
+    <li> see your code controlling a graphical user interface, and </li>
+    <li> use control loops to manage movement in the Maze. </li>
+</ol>
+
+<h4> Description </h4>
+
+This assignment features Firefly and Mal from the space western 
+<a href="http://en.wikipedia.org/wiki/Firefly_(TV_series)"><b>Firefly</b></a>,
+the best TV series ever made. Firefly is constantly having to save Mal 
+from the gorram Reavers.  The goal of this program is to move Firefly
+around the maze according to a precise set of rules. If you follow the rules,
+Firefly will find Mal, and will never meet the Reavers. <b>Note:</b> You must follow
+the exact path we specify to receive full credit on this program, finding Mal
+is not enough!
+
+<font color="navy">
+<h4> Getting Started </h4>
+</font>
+
+The setup for this assignment is complex enough that you may not want to do it on your
+own, so we have dedicated some time during Lab 9 for our TAs to help you to get started.
+P6 requires an additional Java file for the graphical user interface, in addition to several image and maze files. As usual, use Eclipse to create a P6 project and associated
+P6 class in P6.java. Copy the image files and maze files into <b>workspace/P6/</b>, and the
+<b>Maze.java</b> source file to <b>workspace/P6/src/</b>.
+<br><br>
+<table>
+<tbody><tr>
+    <td valign="top">
+        <ul>
+            <li><a href="https://www.cs.colostate.edu/~cs163/.Fall18/assignments/P6/src/Firefly.png">Firefly.png</a>
+            </li><li><a href="https://www.cs.colostate.edu/~cs163/.Fall18/assignments/P6/src/Mal.png">Mal.png</a>
+            </li><li><a href="https://www.cs.colostate.edu/~cs163/.Fall18/assignments/P6/src/Reavers.png">Reavers.png</a>
+            </li><li><a href="https://www.cs.colostate.edu/~cs163/.Fall18/assignments/P6/src/Success.png">Success.png</a>
+            </li><li><a href="https://www.cs.colostate.edu/~cs163/.Fall18/assignments/P6/src/Maze1.txt">Maze1.txt</a>
+            </li><li><a href="https://www.cs.colostate.edu/~cs163/.Fall18/assignments/P6/src/Maze2.txt">Maze2.txt</a>
+            </li><li><a href="https://www.cs.colostate.edu/~cs163/.Fall18/assignments/P6/src/Maze3.txt">Maze3.txt</a>
+            </li><li><a href="https://www.cs.colostate.edu/~cs163/.Fall18/assignments/P6/src/Maze4.txt">Maze4.txt</a>
+            </li><li><a href="https://www.cs.colostate.edu/~cs163/.Fall18/assignments/P6/src/Maze5.txt">Maze5.txt</a>
+            </li><li><a href="https://www.cs.colostate.edu/~cs163/.Fall18/assignments/P6/src/Maze6.txt">Maze6.txt</a>
+            </li><li><a href="https://www.cs.colostate.edu/~cs163/.Fall18/assignments/P6/src/HardMaze.txt">HardMaze.txt</a>
+            </li><li><a href="https://www.cs.colostate.edu/~cs163/.Fall18/assignments/P6/src/Maze.java">Maze.java</a>
+        </li></ul>
+    </td>
+
+    <td valign="top" style="padding-left: 5em;">
+    A tree view of the P6 directory should look like this: <br>
+
+    <!-- this builds a tree view -->
+    &nbsp;P6/<br>
+    ├── Firefly.png<br>
+    ├── Mal.png<br>
+    ├── Reavers.png<br>
+    ├── Success.png<br>
+    ├── Maze1.txt<br>
+    ├── Maze2.txt<br>
+    ├── Maze3.txt<br>
+    ├── Maze4.txt<br>
+    ├── Maze5.txt<br>
+    ├── Maze6.txt<br>
+    ├── HardMaze.txt<br>
+    ├── bin/<br>
+    └── src/<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└── Maze.java<br>
+    <br>
+
+    </td>
+</tr>
+</tbody></table>
+Copy the following code into P6.java:
+
+<br>
+<pre class="prettyprint lang-java prettyprinted" style=""><span class="pln">
+</span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">class</span><span class="pln"> P6 </span><span class="pun">{</span><span class="pln">
+
+    </span><span class="com">// Class variables</span><span class="pln">
+    </span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">static</span><span class="pln"> </span><span class="typ">Maze</span><span class="pln"> maze</span><span class="pun">;</span><span class="pln">
+    </span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">static</span><span class="pln"> </span><span class="kwd">int</span><span class="pln"> mazeWidth</span><span class="pun">;</span><span class="pln">
+    </span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">static</span><span class="pln"> </span><span class="kwd">int</span><span class="pln"> mazeHeight</span><span class="pun">;</span><span class="pln">
+
+    </span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">static</span><span class="pln"> </span><span class="kwd">void</span><span class="pln"> main</span><span class="pun">(</span><span class="typ">String</span><span class="pun">[]</span><span class="pln"> args</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+
+        </span><span class="com">// Create maze</span><span class="pln">
+        </span><span class="typ">String</span><span class="pln"> fileName </span><span class="pun">=</span><span class="pln"> args</span><span class="pun">[</span><span class="lit">0</span><span class="pun">];</span><span class="pln">
+        </span><span class="typ">System</span><span class="pun">.</span><span class="pln">err</span><span class="pun">.</span><span class="pln">println</span><span class="pun">(</span><span class="str">"Maze name: "</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> fileName</span><span class="pun">);</span><span class="pln">
+
+        </span><span class="com">// Get dimensions</span><span class="pln">
+        maze </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">Maze</span><span class="pun">(</span><span class="pln">fileName</span><span class="pun">);</span><span class="pln">
+        mazeWidth </span><span class="pun">=</span><span class="pln"> maze</span><span class="pun">.</span><span class="pln">getWidth</span><span class="pun">();</span><span class="pln">
+        mazeHeight </span><span class="pun">=</span><span class="pln"> maze</span><span class="pun">.</span><span class="pln">getHeight</span><span class="pun">();</span><span class="pln">
+        </span><span class="typ">System</span><span class="pun">.</span><span class="pln">err</span><span class="pun">.</span><span class="pln">println</span><span class="pun">(</span><span class="str">"Maze width: "</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> mazeWidth</span><span class="pun">);</span><span class="pln">
+        </span><span class="typ">System</span><span class="pun">.</span><span class="pln">err</span><span class="pun">.</span><span class="pln">println</span><span class="pun">(</span><span class="str">"Maze height: "</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> mazeHeight</span><span class="pun">);</span><span class="pln">
+
+        </span><span class="com">// Add code to move around maze</span><span class="pln">
+    </span><span class="pun">}</span><span class="pln">
+</span><span class="pun">}</span><span class="pln">   
+</span></pre>
+Once all files are in place, follow these steps:
+
+<ol>
+    <li> Modify the run configuration to pass <tt>Maze1.txt</tt> to the program.
+    </li><li> Test your program by calling <tt>maze.moveRight()</tt> to make the student move right one square.
+    </li><li> <b>Exercise 1</b>: The maze object has similar methods to move down, left, and up, try calling each of them.
+    </li><li> <b>Exercise 2</b>: Try writing a for or while loop to move Firefly from left to right across the top row.
+    </li><li> <b>Exercise 3</b>: Run Firefly around the outside of the Maze, in a clockwise direction.
+    </li><li> <b>Exercise 4</b>: Run <tt>Maze5.txt</tt> and see what happens when you run into the Reavers.<br>
+         <b>Note</b>: In order to detect the Reavers, you must check the return value from the move methods.
+</li></ol>
+
+<h3> Instructions </h3>
+
+In Lab 9 you should have started on P6.java, if not please follow the directions
+above. Leave in the code you wrote that instantiates the Maze object and retrieves the
+dimensions. Remove any code from the recitation that moves Firefly around in the maze.
+Then add code to implement the algorithm shown below. This will require multiple control
+loops, which can be either <b>while</b> or <b>for</b> statements. Here is a complete specification of the Maze methods you can call:
+
+<pre>// Constructor, parameter is name of maze file
+public Maze(String fileName);
+
+// Get width and height of maze
+public int getWidth();
+public int getHeight();
+
+// Get location of Firefly
+public int getColumn();
+public int getRow();
+
+// Commands to move Firefly
+public boolean moveRight();
+public boolean moveLeft();
+public boolean moveDown();
+public boolean moveUp();
+</pre>
+
+<h4> Algorithm </h4>
+
+<ul>
+<li> The mazes can be of any size. </li>
+<li> Firefly always starts in the top left corner. </li>
+<li> Mal can be anywhere, as specified by the maze file. </li>
+<li> Reavers can be anywhere, as specified by the maze file. </li>
+<li> If you follow the rules, Firefly will never meet the Reavers, and will find Mal. </li>
+<li> Row and column numbers are zero based, so the first row and column is index 0. </li>
+<li> Here is the exact algorithm for finding Mal: </li>
+
+    <ol>
+    <li> On even rows, Firefly moves from left to right. </li>
+    <li> On odd rows, Firefly moves from right to left. </li>
+    <li> When Firefly reaches the right side on an even row, it moves down. </li>
+    <li> When Firefly reaches the left side on an odd row, it moves down. </li>
+    <li> When Firefly successfully moves, the Maze move methods return true. </li>
+    <li> When Firefly would run into the Reavers, the Maze move methods return false. </li>
+    <li> When the move method returns false, you must pull a "Crazy Ivan" to make Firefly evade the Reavers. </li>
+    <li> "Crazy Ivan" when moving right means move down, right, right, then up. </li>
+    <li> "Crasy Ivan" when moving left means move down, left, left, then up. </li>
+    <li> <b>Hint:</b> You can use an outer loop to run through all rows. </li>
+    <li> <b>Hint:</b> You can use an inner loop to move from left to right. </li>
+    <li> <b>Hint:</b> You can use a separate inner loop to move from right to left. </li>
+    <li> <b>Hint:</b> You can decide between the loops by checking the row modulo 2. </li>
+    <li> <b>Hint:</b> Always move down after completing a loop. </li>
+    </ol>
+<li> If Firefly goes outside the maze, the maze will print an error and exit. </li>
+<li> Firefly cannot run into the Reavers, the maze will not allow it. </li>
+<li> When Firefly finds Mal, the maze will print congratulations and exit. </li>
+<li> There are mazes that cannot be solved using the algorithm, but we will not test
+     your program with any of them.
+</li></ul>
+
+The Maze is programmed to wait 1.0 seconds each time you move Firefly,
+so you can issue move calls back to back, and Firefly will move at a
+reasonable speed that allows you to see the moves. You can modify this
+time in the Maze.java file. <b><font color="red">Any other changes to the
+graphical user interface in Maze.java will void your warranty!</font></b>
+In addition to checking visually, the move methods will print the row
+and column of Firefly, and you can use this to debug your code. This is also
+used to test your code. For example, here is the output of Firefly moving
+right along the top row then down to the second row.
+<p>
+
+</p><pre>Maze name: Maze5.txt
+Maze width: 8
+Maze height: 5
+Moved to row 0, column 1
+Moved to row 0, column 2
+Moved to row 1, column 2
+Moved to row 1, column 3
+Moved to row 1, column 4
+Moved to row 0, column 4
+Moved to row 0, column 5
+Moved to row 0, column 6
+Moved to row 0, column 7
+Firefly found Mal, congratulations!
+</pre>
+
+<h4> Testing </h4>
+
+You should test your code with the six Mazes provided, and you can also make your
+own mazes. The format of a maze file is shown below. The first line is an integer specifying the maze width, followed by an integer with the maze height. These values
+are followed by one line for each row of the maze, with one character per column.
+The value 'F' is Firefly, 'M' is Mal, 'R' is Reavers, and '-' is empty.
+
+<pre>5
+6
+F----M
+--R---
+----R-
+-R----
+---R--
+</pre>
+
+<h3>Specifications</h3>
+Your program must meet the following specifications:
+<ul>
+<li> Firefly must follow the exact route specified.
+</li><li> Work on your own, as always.
+</li><li> The name of the source code file must be exactly <tt>P6.java</tt>.
+</li><li> Name the file exactly - upper and lower case matters!
+</li><li> Assignments should be implemented using Eclipse.
+</li><li> Assignments should be implemented using Java 1.8.
+</li><li> Make sure your code runs on machines in the COMCS 120 lab.
+</li><li> Submit your program to the Checkin tab as you were shown in the recitation.
+</li><li> Read the syllabus for the late policy. 
+</li><li> We will be checking programs for plagiarism, so please don't copy from anyone else.
+</li></ul>
+
+<h4> Grading Criteria </h4>
+
+<ul>
+<li> 100 points for perfect submission.
+</li><li> 0 points for no submission, will not compile, submitted class file, etc.
+</li><li> Preliminary Tests:
+    <ul style="list-style-type: none">
+    <li> compileTest: checks that P6.java program compiles with Maze.java. (0 points)
+    </li><li> test1: Firefly correctly solves Maze1.txt (10 points)
+    </li><li> test2: Firefly correctly solves Maze2.txt (10 points)
+    </li><li> test3: Firefly correctly solves Maze3.txt (10 points)
+    </li><li> test4: Firefly correctly solves Maze4.txt (10 points)
+    </li><li> test5: Firefly correctly solves Maze5.txt (10 points)
+    </li><li> test6: Firefly correctly solves Maze6.txt (10 points)
+    </li></ul>
+</li><li> Preliminary tests use mazes of different sizes, so do not hard code width and height.
+</li><li> Final Tests:
+    <ul style="list-style-type: none">
+    <li> HardMaze: We will test with a large and devious maze called HardMaze.txt,
+         which is provided to you! (40 points)
+    </li></ul>
+</li><li> Final grading includes the preliminary tests.
+</li></ul>
+
+<!--Turn in banner at bottom of page -->
+<hr noshade="" color="black">
+<center>
+<font color="Red">
+  Submit P6.java to Checkin.
+</font></center><font color="Red">
+<hr noshade="" color="black">
+<br>
+<!-- Logos -->
+<div style="text-align:left;"><img src="./Programming Assignment 6_ P6_files/csbannerhalf.gif" alt="CS Banner">
+<div style="float:right" ;=""><img src="./Programming Assignment 6_ P6_files/csBuildingLowerRight.png" alt="CS Building">
+<br>
+<br>
+
+
+
+
+
+</div></div></font></body></html>

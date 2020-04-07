@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<!-- saved from url=(0069)https://www.cs.colostate.edu/~cs163/.Fall18/assignments/P5/doc/P5.php -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" type="text/css" href="./Programming Assignment 5_ P5_files/stylesheetCS.css">
+<title> Programming Assignment 5: P5 </title>
+<link rel="stylesheet" type="text/css" href="./Programming Assignment 5_ P5_files/prettify.css"></head>
+
+<body style="background-color:powderblue">
+<br>
+<img src="./Programming Assignment 5_ P5_files/csuRightAlignLogo.png" alt="CSU Banner" align="right">
+
+<h1> CS 163/164, Fall 2018 </h1>
+<h2> Programming Assignment - P5 </h2>
+<h2> Control Loops </h2>
+<h4> Due Monday, Sep. 24th at 6:00 pm </h4><h4>
+</h4><h4> Late Tuesday, Sep. 25th at 8:00 am </h4>
+<hr noshade="" color="black">
+
+<h4> Objectives of this Assignment </h4>
+<ol>
+  <li> To practice for, while, and do while loops. </li>
+</ol>
+
+<h4> Description </h4>
+
+This assignment is a practice session for writing loops. Computers are
+outstanding at doing repetitive tasks, thus loops are very common in all
+types of code. We will practice loops on the characters in a string in
+recitation this week, and this assignment will allow you use loops in
+more creative ways.
+
+<h4> Instructions </h4>
+
+Create a <tt>P5</tt> project in Eclipse then write a class <tt>P5</tt> with
+a main method, and copy the following code into the class (not in the main
+method).
+
+<pre class="prettyprint lang-java prettyprinted" style=""><span class="com">// Method to check whether an integer is prime.</span><span class="pln">
+</span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">static</span><span class="pln"> </span><span class="kwd">boolean</span><span class="pln"> isPrime</span><span class="pun">(</span><span class="kwd">int</span><span class="pln"> number</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+
+    </span><span class="com">// DO NOT CHANGE THIS CODE!</span><span class="pln">
+    </span><span class="kwd">for</span><span class="pun">(</span><span class="kwd">int</span><span class="pln"> i</span><span class="pun">=</span><span class="lit">2</span><span class="pun">;</span><span class="pln">i</span><span class="pun">&lt;=</span><span class="pln">number</span><span class="pun">/</span><span class="lit">2</span><span class="pun">;</span><span class="pln">i</span><span class="pun">++)</span><span class="pln">
+        </span><span class="kwd">if</span><span class="pun">(</span><span class="pln">number</span><span class="pun">%</span><span class="pln">i</span><span class="pun">==</span><span class="lit">0</span><span class="pun">)</span><span class="pln">
+            </span><span class="kwd">return</span><span class="pln"> </span><span class="kwd">false</span><span class="pun">;</span><span class="pln">
+    </span><span class="kwd">return</span><span class="pln"> </span><span class="kwd">true</span><span class="pun">;</span><span class="pln">
+</span><span class="pun">}</span><span class="pln">
+
+</span><span class="com">// Method to print primes in a specified range</span><span class="pln">
+</span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">static</span><span class="pln"> </span><span class="kwd">void</span><span class="pln"> printPrimes</span><span class="pun">(</span><span class="kwd">int</span><span class="pln"> start</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">int</span><span class="pln"> end</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+    </span><span class="com">// add code here</span><span class="pln">
+</span><span class="pun">}</span><span class="pln">
+
+</span><span class="com">// Method to remove vowels from a string</span><span class="pln">
+</span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">static</span><span class="pln"> </span><span class="typ">String</span><span class="pln"> removeVowels</span><span class="pun">(</span><span class="typ">String</span><span class="pln"> input</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+    </span><span class="com">// add code here</span><span class="pln">
+</span><span class="pun">}</span><span class="pln">
+
+</span><span class="com">// Method to generate and print the value of a number raised to an exponent</span><span class="pln">
+</span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">static</span><span class="pln"> </span><span class="kwd">double</span><span class="pln"> evaluateExponent</span><span class="pun">(</span><span class="kwd">double</span><span class="pln"> number</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">int</span><span class="pln"> exponent</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+    </span><span class="com">// add code here</span><span class="pln">
+</span><span class="pun">}</span><span class="pln">
+
+</span><span class="com">// Method to find and print the minimum/maximum/mean of a set of positive numbers</span><span class="pln">
+</span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">static</span><span class="pln"> </span><span class="kwd">void</span><span class="pln"> computeStatistics</span><span class="pun">(</span><span class="kwd">int</span><span class="pln"> sentinel</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+    </span><span class="com">// add code here</span><span class="pln">
+</span><span class="pun">}</span></pre>
+
+Next, implement each of the methods shown above, according to these instructions:
+<br>
+<br>
+
+<tt>printPrimes</tt>
+<ol>
+<li> Inside the method iterate over the specified (inclusive) range using a <b>for</b> loop.
+</li><li> Call the isPrime method for each number in the range.
+</li><li> If isPrime returns true for the number, print the number followed by a comma and space.
+</li><li> It is expected that the last prime number will be followed by a comma and space.
+</li><li> After the loop has completed, print a newline.
+</li></ol>
+
+<tt>removeVowels</tt>
+<ol>
+<li> Declare a string variable for the return value, and initialize it to "".
+</li><li> Use a <b>for</b> loop to iterate over all the characters in the supplied string.
+</li><li> Use a conditional or switch statement to check whether the character is a vowel.
+</li><li> The vowels are a/e/i/o/u, uppercase or lowercase.
+</li><li> If it is a vowel, do nothing, otherwise add the character to the return string.
+</li><li> After the loop has completed, return the string.
+</li></ol>
+
+<tt>evaluateExponent</tt>
+<ol>
+<li> Declare a double variable called result and initialize it to 1.0;
+</li><li> If the exponent parameter is 0, return the result immediately.
+</li><li> You do not need to handle a negative exponent value.
+</li><li> Otherwise declare an integer variable called loop and initialize it to 0.
+</li><li> Write a <b>do while</b> loop, as follows:
+</li><li> Inside the loop:
+	<ul>
+	<li> Multiply the result times the number.
+    </li><li> Increment the loop variable.
+    </li><li> The terminating condition is when loop is equal to exponent.
+	</li></ul>	
+</li><li> After the loop has completed, return the result.
+</li></ol>
+
+<tt>computeStatistics</tt>
+<ol>
+<li> Declare and initialize a Scanner to read from the keyboard.
+</li><li> Declare an integer variable called value and initialize it to 0.
+</li><li> Declare an integer variable called count and initialize it to 0.
+</li><li> Declare a double variable called mean and  initialize it to 0.0.
+</li><li> Declare an integer variable called minimum and set it equal to Integer.MAX_VALUE.
+</li><li> Declare an integer variable called maximum and  set it equal to Integer.MIN_VALUE;
+</li><li> Write a <b>while</b> loop that never terminates!
+</li><li> Inside the loop:
+	<ul>
+	<li> Read in an integer value from the keyboard, without prompting.
+	</li><li> If the value equals the sentinel (for example, -1), exit the loop with a <tt>break</tt> statement.
+	</li><li> If value is smaller than minimum, assign the value to minimum.
+	</li><li> If value is larger than maximum, assign the value to maximum.
+	</li><li> Add the value to the mean.
+	</li><li> Increment the count.
+	</li></ul>	
+</li><li> After the loop has completed, divide the mean by the count.
+</li><li> Print "Count: " and the value of count, with a newline.
+</li><li> Print "Average: " and the value of mean to 1 decimal place, with a newline.
+</li><li> Print "Maximum: " and the value of maximum, with a newline.
+</li><li> Print "Minimum: " and the value of minimum, with a newline.
+</li></ol>
+
+<h3>Testing</h3>
+
+You should test your code by calling each of the methods in main. We have provided
+a minimal test and the output below:
+
+<h4>Testing code</h4>
+
+This code you can copy into your main method for testing. It is fine to
+leave the testing code in P5.java when you submit.
+
+<pre>    // Preliminary testing
+    printPrimes(1, 50);
+    System.out.println(removeVowels("ABCDEFGHIJKLMNOPQRSTUVWXYZ"));
+    double result = evaluateExponent(2.0,16);
+    System.out.println("2.0 to the 16 = " + result);
+    computeStatistics(-1);
+</pre>
+
+<h4>SAMPLE OUTPUT</h4>
+
+User input is shown in green:
+
+<pre>1, 2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 
+BCDFGHJKLMNPQRSTVWXYZ
+2.0 to the 16 = 65536.0
+<font color="green">10</font>
+<font color="green">20</font>
+<font color="green">30</font>
+<font color="green">40</font>
+<font color="green">50</font>
+<font color="green">60</font>
+<font color="green">-1</font>
+Count: 6
+Average: 35.0
+Maximum: 60
+Minimum: 10
+</pre>
+
+<h3>Specifications</h3>
+Your program must meet the following specifications:
+<ul>
+<li> Work on your own, as always.
+</li><li> The name of the source code file must be exactly <tt>P5.java</tt>.
+</li><li> Assignments should be implemented using Eclipse.
+</li><li> Assignments should be implemented using Java 1.8.
+</li><li> Make sure your code runs on machines in the COMCS 120 lab.
+</li><li> Submit your program to the Checkin tab as you were shown in the recitation.
+</li><li> Read the syllabus for the late policy. 
+</li><li> We will be checking programs for plagiarism, so please don't copy from anyone else.
+</li><li> <b>HINT:</b> Here is a rough count of lines of code for each method, including
+lines with curly braces, print statements, loops, etc.:
+	<ul>
+    <li> printPrimes - 4 lines, including for loop
+    </li><li> removeVowels - 13 lines, including switch statement
+    </li><li> evaluateExponent - 19 lines, with variable declarations
+    </li><li> computeStatistics - 21 lines, with print statements
+	</li></ul>
+</li></ul>
+
+<h4>Grading Criteria</h4>
+
+<ul>
+<li> 100 points for perfect submission.
+</li><li> 0 points for no submission, will not compile, submitted class file, etc.
+</li><li> The preliminary testing for this assignment is limited to the following:
+</li><li> Preliminary Tests
+    <ul style="list-style-type: none">
+    <li> compileTest: checks that program compiles. (0 points)
+    </li><li> <b>Note:</b> The compile test will pass only if you implement all methods with the correct signature.
+    </li><li> test1: Tests printPrimes with values selected by the instructor. (25 points)
+    </li><li> test2: Tests removeVowels with strings selected by one of the teaching assistants. (25 points)
+    </li></ul>
+</li><li> Final Tests
+    <ul style="list-style-type: none">
+    <li> test3: Tests evaluateExponent with a maximum selected by committee. (25 points)
+    </li><li> test4: Tests computeStatistics with a set of values from a random passerby. (25 points)
+    </li></ul>
+</li><li> Final grading includes the preliminary tests.
+</li></ul>
+
+<!--Turn in banner at bottom of page -->
+<hr noshade="" color="black">
+<center>
+<font color="Red">
+  Submit P5.java to the Checkin tab.
+</font></center><font color="Red">
+<hr noshade="" color="black">
+<br>
+<!-- Logos -->
+<div style="text-align:left;"><img src="./Programming Assignment 5_ P5_files/csbannerhalf.gif" alt="CS Banner">
+<div style="float:right" ;=""><img src="./Programming Assignment 5_ P5_files/csBuildingLowerRight.png" alt="CS Building">
+<br>
+<br>
+
+
+
+
+
+</div></div></font></body></html>
