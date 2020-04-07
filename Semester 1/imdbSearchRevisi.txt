@@ -1,0 +1,14 @@
+==============================
+HASIL SEARCH KATA MAN
+==============================
+Rank	 Votes	 Rating	 Judul
+48	 32213	 8.4	 The Third Man (1949)
+85	 32498	 8.3	 The Elephant Man (1980)
+86	 23502	 8.3	 The Manchurian Candidate (1962)
+97	 138742	 8.2	 Batman Begins (2005)
+228	 17928	 7.9	 Roman Holiday (1953)
+231	 22558	 7.9	 Manhattan (1979)
+237	 38241	 7.9	 Cinderella Man (2005)
+242	 8089	 7.9	 A Man for All Seasons (1966)
+248	 13776	 7.9	 The Man Who Shot Liberty Valance (1962)
+9 matches.
